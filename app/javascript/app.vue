@@ -11,10 +11,10 @@
         </li>
       </draggable>
     </ul>
-      <form @submit.prevent>
-        <input type="text" v-model="newTodo" placeholder="Enter your new task">
-        <button class="btn-add" @click="addTodo">add</button>
-      </form>
+    <form @submit.prevent>
+      <input type="text" v-model="newTodo" placeholder="Enter your new task">
+      <button @click="addTodo">add</button>
+    </form>
     <ul>
       <h2>Working Tasks</h2>
       <draggable :options="{group:'ITEMS'}">
@@ -24,6 +24,10 @@
         </li>
       </draggable>
     </ul>
+    <form @submit.prevent>
+      <input type="text" v-model="newwTodo" placeholder="Enter your new task">
+      <button @click="addwTodo">add</button>
+    </form>
     <ul>
       <h2>Finish Tasks</h2>
       <draggable :options="{group:'ITEMS'}">
@@ -33,6 +37,10 @@
         </li>
       </draggable>
     </ul>
+    <form @submit.prevent>
+      <input type="text" v-model="newfTodo" placeholder="Enter your new task">
+      <button @click="addfTodo">add</button>
+    </form>
   </div>
 </template>
 
@@ -66,6 +74,14 @@ export default {
       addTodo:  function() {
         this.todos.push(this.newTodo);
         this.newTodo = '';
+      },
+      addwTodo: function() {
+        this.wtodos.push(this.newwTodo);
+        this.newwTodo = '';
+      },
+      addfTodo: function() {
+        this.ftodos.push(this.newfTodo);
+        this.newfTodo = '' ;
       },
       deleatTodo: function(index) {
         if (confirm('Are you sure?')) {
