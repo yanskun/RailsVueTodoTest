@@ -11,7 +11,12 @@
 
   <body>
     <%= yield %>
-
+    <!-- app/javascript/packs/のなかのmain.jsファイルを引っ張ってくる -->
+    <!-- ファイル名の指定をしているから、拡張子は省略できる？？？ -->
     <%= javascript_pack_tag 'main' %>
+    <!-- Bootstrap用に新たに追加 -->
+    <!-- app/stylesheet/packs/のなかのmain.cssファイルを引っ張ってくる -->
+    <!-- ただし、そんなファイルは存在していない... -->
+    <%= stylesheet_pack_tag 'main' %>
   </body>
 </html>
