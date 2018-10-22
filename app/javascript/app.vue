@@ -5,14 +5,7 @@
 </template>
 
 <script>
-// draggable
-import draggable from 'vuedraggable';
-
 export default {
-  name: 'app',
-  components: {
-    draggable,
-  },
   data: function () {
     return {
       message: "Hello Vue!"
