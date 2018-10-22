@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Task Management</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,5 +11,9 @@
 
   <body>
     <%= yield %>
+
+    <%= javascript_pack_tag 'main' %>
+    <!-- Bootstrap用に新たに追加 -->
+    <%= stylesheet_pack_tag 'main' %>
   </body>
 </html>
