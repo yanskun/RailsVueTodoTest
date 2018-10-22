@@ -10,24 +10,24 @@
           <a @click="deleatTodo(index)">[x]</a>
         </li>
       </draggable>
-    </ul>
     <form @submit.prevent>
       <input type="text" v-model="newTodo" placeholder="Enter your new task">
       <button @click="addTodo">add</button>
     </form>
+    </ul>
     <ul>
-      <h2>Working Tasks</h2>
+      <h2>Progress Tasks</h2>
       <draggable :options="{group:'ITEMS'}">
         <li v-for="(wtodo, index) in wtodos">
           <a>{{ wtodo }}</a>
           <a @click="deleatTodo(index)">[x]</a>
         </li>
       </draggable>
-    </ul>
     <form @submit.prevent>
       <input type="text" v-model="newwTodo" placeholder="Enter your new task">
       <button @click="addwTodo">add</button>
     </form>
+    </ul>
     <ul>
       <h2>Finish Tasks</h2>
       <draggable :options="{group:'ITEMS'}">
@@ -36,11 +36,11 @@
           <a @click="deleatTodo(index)">[x]</a>
         </li>
       </draggable>
-    </ul>
     <form @submit.prevent>
       <input type="text" v-model="newfTodo" placeholder="Enter your new task">
       <button @click="addfTodo">add</button>
     </form>
+    </ul>
   </div>
 </template>
 
@@ -93,5 +93,23 @@ export default {
 </script>
 
 <style scoped>
+li {
+  width: 200px;
+  border: solid 1px;
+  margin-bottom: 5px;
+}
+
+ul {
+  width: 300px;
+  margin-top: 10px;
+  margin-left: 10px;
+  float: left;
+  list-style: none;
+  border: solid 1px;
+}
+
+li:hover {
+  background-color: #eeeeee;
+}
 
 </style>
