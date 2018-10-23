@@ -10,7 +10,6 @@
 import Vue from 'vue'
 // ルータファイルを指定している。拡張子は消えているが「index.js」
 import Router from './router/index'
-import About from '.components/about.vue'
 import App from '../app.vue'
 
 // bootstrap
@@ -23,22 +22,23 @@ Vue.use(BootstrapVue)
 // index.html.erb内の<div id="app"にマウントされるらしい>
 // index.html.erbのstyle sheetの指定がおかしいと怒られる
 var app = new Vue({
-  el: '#app'
-  router,
-  components: {
-    'navbar': Task,
-  }
+  el: '#app',
+  router: Router,
+  components: { App },
+  template: '<App/>'
 })
 
-document.addEventListener('DOMContentLoaded', () => {
-  const el = document.body.appendChild(document.createElement('hello'))
-  const app = new Vue({
-    el,
-    render: h => h(App)
-  })
 
-  console.log(app)
-})
+// 最初からいたけど、不要なのでコメントアウト
+// document.addEventListener('DOMContentLoaded', () => {
+//   const el = document.body.appendChild(document.createElement('hello'))
+//   const app = new Vue({
+//     el,
+//     render: h => h(App)
+//   })
+//
+//   console.log(app)
+// })
 
 
 // The above code uses Vue without the compiler, which means you cannot
