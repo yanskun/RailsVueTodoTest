@@ -24,8 +24,10 @@ Vue.use(BootstrapVue)
 var app = new Vue({
   el: '#app',
   router: Router,
-  components: { App },
-  template: '<App/>'
+  components: {
+    'navbar': App,
+   }
+  // template: '<App/>'
 })
 
 

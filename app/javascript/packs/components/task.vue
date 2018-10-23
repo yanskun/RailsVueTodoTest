@@ -8,10 +8,10 @@
         <input type="text" v-model="newTodo" placeholder="Enter your new task">
         <button @click="addTodo">add</button>
       </form>
-      <draggable :list="todos" :options="{group:'ITEMS'}">
+      <draggable :options="{group:'ITEMS'}">
         <li v-for="(todo, index) in todos">
           <a>{{ todo }}</a>
-          <a @click="deleatTodo(index)">[x]</a>
+          <a @click="deleteTodo(index)">[x]</a>
         </li>
       </draggable>
     </ul>
@@ -24,7 +24,7 @@
       <draggable :list="wtodos" :options="{group:'ITEMS'}">
         <li v-for="(wtodo, index) in wtodos">
           <a>{{ wtodo }}</a>
-          <a @click="deleatwTodo(index)">[x]</a>
+          <a @click="deletewTodo(index)">[x]</a>
         </li>
       </draggable>
     </ul>
@@ -37,7 +37,7 @@
       <draggable :list="ftodos" :options="{group:'ITEMS'}">
         <li v-for="(ftodo, index) in ftodos">
           <a>{{ ftodo }}</a>
-          <a @click="deleatfTodo(index)">[x]</a>
+          <a @click="deletefTodo(index)">[x]</a>
         </li>
       </draggable>
     </ul>
@@ -89,17 +89,17 @@ export default {
         alert(this.ftodos);
         this.newfTodo = '' ;
       },
-      deleatTodo: function(index) {
+      deleteTodo: function(index) {
         if (confirm('Are you sure?')) {
           this.todos.splice(index, 1)
         }
       },
-      deleatwTodo: function(index) {
+      deletewTodo: function(index) {
         if (confirm('Are you sure?')) {
           this.wtodos.splice(index, 1)
         }
       },
-      deleatfTodo: function(index) {
+      deletefTodo: function(index) {
         if (confirm('Are you sure?')) {
           this.ftodos.splice(index, 1)
         }
