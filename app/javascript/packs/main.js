@@ -8,6 +8,9 @@
 // 元の名前は「hello_vue.js」
 
 import Vue from 'vue'
+// ルータファイルを指定している。拡張子は消えているが「index.js」
+import Router from './router/index'
+import About from '.components/about.vue'
 import App from '../app.vue'
 
 // bootstrap
@@ -15,6 +18,17 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
+
+// これよくわかんない
+// index.html.erb内の<div id="app"にマウントされるらしい>
+// index.html.erbのstyle sheetの指定がおかしいと怒られる
+var app = new Vue({
+  el: '#app'
+  router,
+  components: {
+    'navbar': Task,
+  }
+})
 
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.body.appendChild(document.createElement('hello'))
