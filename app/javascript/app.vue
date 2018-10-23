@@ -8,7 +8,7 @@
         <input type="text" v-model="newTodo" placeholder="Enter your new task">
         <button @click="addTodo">add</button>
       </form>
-      <draggable :options="{group:'ITEMS'}">
+      <draggable :list="todos" :options="{group:'ITEMS'}">
         <li v-for="(todo, index) in todos">
           <a>{{ todo }}</a>
           <a @click="deleatTodo(index)">[x]</a>
@@ -21,10 +21,10 @@
         <input type="text" v-model="newwTodo" placeholder="Enter your new task">
         <button @click="addwTodo">add</button>
       </form>
-      <draggable :options="{group:'ITEMS'}">
+      <draggable :list="wtodos" :options="{group:'ITEMS'}">
         <li v-for="(wtodo, index) in wtodos">
           <a>{{ wtodo }}</a>
-          <a @click="deleatTodo(index)">[x]</a>
+          <a @click="deleatwTodo(index)">[x]</a>
         </li>
       </draggable>
     </ul>
@@ -34,14 +34,15 @@
         <input type="text" v-model="newfTodo" placeholder="Enter your new task">
         <button @click="addfTodo">add</button>
       </form>
-      <draggable :options="{group:'ITEMS'}">
+      <draggable :list="ftodos" :options="{group:'ITEMS'}">
         <li v-for="(ftodo, index) in ftodos">
           <a>{{ ftodo }}</a>
-          <a @click="deleatTodo(index)">[x]</a>
+          <a @click="deleatfTodo(index)">[x]</a>
         </li>
       </draggable>
     </ul>
   </div>
+
 </template>
 
 <script>
@@ -56,6 +57,8 @@ export default {
   data: function () {
     return {
       newTodo: '',
+      newwTodo: '',
+      newfTodo: '',
       todos: [
         'Task01',
         'Task02',
@@ -72,20 +75,33 @@ export default {
   },
     methods: {
       addTodo:  function() {
-        this.todos.push(this.newTodo);
+        this.todos.unshift(this.newTodo);
+        alert(this.todos);
         this.newTodo = '';
       },
       addwTodo: function() {
-        this.wtodos.push(this.newwTodo);
+        this.wtodos.unshift(this.newwTodo);
+        alert(this.wtodos);
         this.newwTodo = '';
       },
       addfTodo: function() {
-        this.ftodos.push(this.newfTodo);
+        this.ftodos.unshift(this.newfTodo);
+        alert(this.ftodos);
         this.newfTodo = '' ;
       },
       deleatTodo: function(index) {
         if (confirm('Are you sure?')) {
           this.todos.splice(index, 1)
+        }
+      },
+      deleatwTodo: function(index) {
+        if (confirm('Are you sure?')) {
+          this.wtodos.splice(index, 1)
+        }
+      },
+      deleatfTodo: function(index) {
+        if (confirm('Are you sure?')) {
+          this.ftodos.splice(index, 1)
         }
       }
     }
@@ -110,6 +126,10 @@ ul {
 
 li:hover {
   background-color: #eeeeee;
+}
+
+form {
+  padding-bottom: 10px;
 }
 
 </style>
