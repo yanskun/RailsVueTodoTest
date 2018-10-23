@@ -4,42 +4,42 @@
       <!-- タイトル -->
       <h2>Your Tasks</h2>
       <!-- ドラック追加 -->
+      <form @submit.prevent>
+        <input type="text" v-model="newTodo" placeholder="Enter your new task">
+        <button @click="addTodo">add</button>
+      </form>
       <draggable :options="{group:'ITEMS'}">
         <li v-for="(todo, index) in todos">
           <a>{{ todo }}</a>
           <a @click="deleatTodo(index)">[x]</a>
         </li>
       </draggable>
-    <form @submit.prevent>
-      <input type="text" v-model="newTodo" placeholder="Enter your new task">
-      <button @click="addTodo">add</button>
-    </form>
     </ul>
     <ul>
       <h2>Progress Tasks</h2>
+      <form @submit.prevent>
+        <input type="text" v-model="newwTodo" placeholder="Enter your new task">
+        <button @click="addwTodo">add</button>
+      </form>
       <draggable :options="{group:'ITEMS'}">
         <li v-for="(wtodo, index) in wtodos">
           <a>{{ wtodo }}</a>
           <a @click="deleatTodo(index)">[x]</a>
         </li>
       </draggable>
-    <form @submit.prevent>
-      <input type="text" v-model="newwTodo" placeholder="Enter your new task">
-      <button @click="addwTodo">add</button>
-    </form>
     </ul>
     <ul>
       <h2>Finish Tasks</h2>
+      <form @submit.prevent>
+        <input type="text" v-model="newfTodo" placeholder="Enter your new task">
+        <button @click="addfTodo">add</button>
+      </form>
       <draggable :options="{group:'ITEMS'}">
         <li v-for="(ftodo, index) in ftodos">
           <a>{{ ftodo }}</a>
           <a @click="deleatTodo(index)">[x]</a>
         </li>
       </draggable>
-    <form @submit.prevent>
-      <input type="text" v-model="newfTodo" placeholder="Enter your new task">
-      <button @click="addfTodo">add</button>
-    </form>
     </ul>
   </div>
 </template>
