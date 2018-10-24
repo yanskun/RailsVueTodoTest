@@ -10,8 +10,8 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'hash',
   routes: [
-    { path: '/', component: Task, title: 'tasks' },
-    { path: '/about', component: About, title: 'about' },
+    { path: '/', component: Task, headerTitle: 'tasks' },
+    { path: '/about', component: About, headerTitle: 'about' },
   ],
 })
 
