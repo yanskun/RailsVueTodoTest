@@ -7,10 +7,16 @@ import About from '../components/about.vue'
 Vue.use(VueRouter)
 
 // 原因はルーターっぽい？
-export default new VueRouter({
+const router = new VueRouter({
   mode: 'hash',
   routes: [
-    { path: '/', component: Task },
-    { path: '/about', component: About },
+    { path: '/', component: Task, title: 'tasks' },
+    { path: '/about', component: About, title: 'about' },
   ],
+})
+
+export default router;
+
+router.afterEach((to,from) =>{
+  console.log('ページが変わったよ！');
 })
