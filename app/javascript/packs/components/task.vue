@@ -5,12 +5,12 @@
       <h2>Your Tasks</h2>
       <!-- ドラック追加 -->
       <form @submit.prevent>
-        <input type="text" v-model="newTodo" placeholder="Enter your new task">
+        <input type="text" v-model="newTodo" placeholder="Enter your new task...">
         <button @click="addTodo">add</button>
       </form>
       <draggable class="drag" :list="todos" :options="{group:'ITEMS'}">
         <li v-for="(todo, index) in todos">
-          <a class="finish" @click="deleteTodo(index)">&nbsp;😇｜</a>
+          <a class="face"><span class="finish" @click="deleteTodo(index)">&nbsp;😂｜</span><span class="yet">&nbsp;😇｜</span></a>
           <a>{{ todo }}</a>
         </li>
       </draggable>
@@ -18,12 +18,12 @@
     <ul>
       <h2>Progress Tasks</h2>
       <form @submit.prevent>
-        <input type="text" v-model="newwTodo" placeholder="Enter your new task">
+        <input type="text" v-model="newwTodo" placeholder="Enter your new task...">
         <button @click="addwTodo">add</button>
       </form>
       <draggable class="drag" :list="wtodos" :options="{group:'ITEMS'}">
         <li v-for="(wtodo, index) in wtodos">
-          <a class="finish" @click="deletewTodo(index)">&nbsp;😇｜</a>
+          <a class="face"><span class="finish" @click="deletewTodo(index)">&nbsp;😂｜</span><span class="yet">&nbsp;😇｜</span></a>
           <a>{{ wtodo }}</a>
         </li>
       </draggable>
@@ -31,12 +31,12 @@
     <ul>
       <h2>Finish Tasks</h2>
       <form @submit.prevent>
-        <input type="text" v-model="newfTodo" placeholder="Enter your new task">
+        <input type="text" v-model="newfTodo" placeholder="Enter your new task...">
         <button @click="addfTodo">add</button>
       </form>
       <draggable class="drag" :list="ftodos" :options="{group:'ITEMS'}">
         <li v-for="(ftodo, index) in ftodos">
-          <a class="finish" @click="deletefTodo(index)">&nbsp;😇｜</a>
+          <a class="face"><span class="finish" @click="deletefTodo(index)">&nbsp;😂｜</span><span class="yet">&nbsp;😇｜</span></a>
           <a>{{ ftodo }}</a>
         </li>
       </draggable>
@@ -139,9 +139,22 @@ form {
   padding-bottom: 10px;
 }
 
-.finish:hover {
-  cursor: pointer;
+.face {
   padding-left: 5px;
+}
+
+a.face span.yet{
+  display:inline;
+}
+a.face:hover span.yet{
+  display:none;
+}
+a.face span.finish{
+  display:none;
+}
+a.face:hover span.finish{
+  display:inline;
+  cursor: pointer;
 }
 
 </style>
