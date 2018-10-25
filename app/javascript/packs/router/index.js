@@ -3,6 +3,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Task from '../components/task.vue'
 import About from '../components/about.vue'
+import Boot from '../components/boot.vue'
+import Hoge from '../components/hoge.vue'
 
 Vue.use(VueRouter)
 
@@ -10,8 +12,10 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'hash',
   routes: [
-    { path: '/', component: Task, title: 'tasks' },
-    { path: '/about', component: About, title: 'about' },
+    { path: '/', component: Task, headerTitle: 'tasks' },
+    { path: '/about', component: About, headerTitle: 'about' },
+    { path: '/boot', component: Boot, headerTitle: 'boot' },
+    { path: '/hoge', component: Hoge, headerTitle: 'hoge' },
   ],
 })
 

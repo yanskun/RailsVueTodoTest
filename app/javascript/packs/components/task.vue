@@ -5,39 +5,39 @@
       <h2>Your Tasks</h2>
       <!-- ドラック追加 -->
       <form @submit.prevent>
-        <input type="text" v-model="newTodo" placeholder="Enter your new task">
+        <input type="text" v-model="newTodo" placeholder="Enter your new task...">
         <button @click="addTodo">add</button>
       </form>
-      <draggable :options="{group:'ITEMS'}">
+      <draggable class="drag" :list="todos" :options="{group:'ITEMS'}">
         <li v-for="(todo, index) in todos">
+          <a class="face"><span class="finish" @click="deleteTodo(index)">&nbsp;😂｜</span><span class="yet">&nbsp;😇｜</span></a>
           <a>{{ todo }}</a>
-          <a @click="deleteTodo(index)">[x]</a>
         </li>
       </draggable>
     </ul>
     <ul>
       <h2>Progress Tasks</h2>
       <form @submit.prevent>
-        <input type="text" v-model="newwTodo" placeholder="Enter your new task">
+        <input type="text" v-model="newwTodo" placeholder="Enter your new task...">
         <button @click="addwTodo">add</button>
       </form>
-      <draggable :list="wtodos" :options="{group:'ITEMS'}">
+      <draggable class="drag" :list="wtodos" :options="{group:'ITEMS'}">
         <li v-for="(wtodo, index) in wtodos">
+          <a class="face"><span class="finish" @click="deletewTodo(index)">&nbsp;😂｜</span><span class="yet">&nbsp;😇｜</span></a>
           <a>{{ wtodo }}</a>
-          <a @click="deletewTodo(index)">[x]</a>
         </li>
       </draggable>
     </ul>
     <ul>
       <h2>Finish Tasks</h2>
       <form @submit.prevent>
-        <input type="text" v-model="newfTodo" placeholder="Enter your new task">
+        <input type="text" v-model="newfTodo" placeholder="Enter your new task...">
         <button @click="addfTodo">add</button>
       </form>
-      <draggable :list="ftodos" :options="{group:'ITEMS'}">
+      <draggable class="drag" :list="ftodos" :options="{group:'ITEMS'}">
         <li v-for="(ftodo, index) in ftodos">
+          <a class="face"><span class="finish" @click="deletefTodo(index)">&nbsp;😂｜</span><span class="yet">&nbsp;😇｜</span></a>
           <a>{{ ftodo }}</a>
-          <a @click="deletefTodo(index)">[x]</a>
         </li>
       </draggable>
     </ul>
@@ -76,17 +76,14 @@ export default {
     methods: {
       addTodo:  function() {
         this.todos.unshift(this.newTodo);
-        alert(this.todos);
         this.newTodo = '';
       },
       addwTodo: function() {
         this.wtodos.unshift(this.newwTodo);
-        alert(this.wtodos);
         this.newwTodo = '';
       },
       addfTodo: function() {
         this.ftodos.unshift(this.newfTodo);
-        alert(this.ftodos);
         this.newfTodo = '' ;
       },
       deleteTodo: function(index) {
@@ -113,6 +110,8 @@ li {
   width: 200px;
   border: solid 1px;
   margin-bottom: 5px;
+  cursor: move;
+  padding: 5px 0;
 }
 
 ul {
@@ -124,12 +123,38 @@ ul {
   border: solid 1px;
 }
 
+/* 空のレーンにコンテンツを入れられるようにする */
+/* レーンの縦サイズが０になってしまうと、コンテンツを入れるスペースがない認識をされてしまう */
+/* その為、最初から余白を設定しておく。 */
+.drag {
+  margin-bottom: 100px;
+  min-height: 100px;
+}
+
 li:hover {
   background-color: #eeeeee;
 }
 
 form {
   padding-bottom: 10px;
+}
+
+.face {
+  padding-left: 5px;
+}
+
+a.face span.yet{
+  display:inline;
+}
+a.face:hover span.yet{
+  display:none;
+}
+a.face span.finish{
+  display:none;
+}
+a.face:hover span.finish{
+  display:inline;
+  cursor: pointer;
 }
 
 </style>
