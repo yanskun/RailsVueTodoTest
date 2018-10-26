@@ -33,5 +33,14 @@ class Types::MutationType < Types::BaseObject
   end
 
   # delete
+  field :delete_task, Boolean, null: false do
+    argument :id, ID, required: true
+  end
+
+  # 該当IDの全てのデータを削除？
+  def delete_task(id:)
+    Task.where(id: id).destroy_all
+    true
+  end
 
 end
