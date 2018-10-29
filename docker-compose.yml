@@ -3,7 +3,7 @@ services:
   db:
     image: mysql:5.7.17
     ports:
-      - "3306:3306"
+      - "4306:3306"
     volumes:
       - ./docker/mysql/volumes:/var/lib/mysql
     extends:
