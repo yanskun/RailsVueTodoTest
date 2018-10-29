@@ -1,22 +1,13 @@
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
+  <div>
+    <div id="nav">
+      <h1>Trello()</h1>
+      <ul>
+        <li><router-link to="/">Task</router-link></li>
+        <li><router-link to="/about">About</router-link></li>
+        <li><router-link to="/boot">Boot</router-link></li>
+        <li><router-link to="/hoge">Hoge</router-link></li>
+      </ul>
+    </div>
   </div>
 </template>
-
-<script>
-export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
-  }
-}
-</script>
-
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>
