@@ -31,4 +31,6 @@
 yarn-debug.log*
 .yarn-integrity
 
+
+# DBデータはgit管理しないほうが良いらしいので。
 /docker/mysql/
