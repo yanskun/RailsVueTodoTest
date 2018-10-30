@@ -7,11 +7,9 @@
       <!-- <input type="text" v-model="Task">
       <button @click="createTask">add</button> -->
       <h3>aaaa</h3>
-      <draggable>
       <li v-for="item in taskAll">
         <a>{{item.name}}</a>
       </li>
-      </draggable>
     </ul>
   </div>
 </template>
