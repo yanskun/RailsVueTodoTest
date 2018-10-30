@@ -4,16 +4,20 @@
     <p>{{ testGoodbey }}</p>
     <p>{{ taskAll }}</p>
     <ul>
-      <input type="text" v-model="Task">
-      <button @click="createTask">add</button>
+      <!-- <input type="text" v-model="Task">
+      <button @click="createTask">add</button> -->
+      <h2>aaaa</h2>
+      <draggable>
       <li v-for="item in taskAll">
         <a>{{item.name}}</a>
       </li>
+      </draggable>
     </ul>
   </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import Vue from 'vue'
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
@@ -42,16 +46,28 @@ Vue.use(VueApollo)
 
 export default {
   provide: apolloProvider.provide(),
+  components: {
+    draggable,
+  },
   apollo: {
     testHello: gql`query { testHello }`,
     testGoodbey: gql`query { testGoodbey }`,
     taskAll: gql`query { taskAll{ id name }}`,
-    createTask: gql`{
-      mutation createTask($task:TaskInputType!){
-        createTask(task:$task){
-          name
-        }}`
+    // createTask: gql`{
+    //   mutation createTask($task:TaskInputType!){
+    //     createTask(task:$task){
+    //       name
+    //     }}`
   },
 }
 
 </script>
+
+<style scoped>
+
+ul {
+  width: 200px;
+  border: solid 1px;
+}
+
+</style>

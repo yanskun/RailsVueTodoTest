@@ -24,7 +24,7 @@ class Types::QueryType < Types::BaseObject
     end
 
   def test_hello
-    "Hello World!？"
+    "Hello World！？"
   end
 
   field :test_goodbey, String, null: false,
