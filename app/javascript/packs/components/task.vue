@@ -101,7 +101,8 @@ export default {
           this.ftodos.splice(index, 1)
         }
       }
-    }
+    },
+    
   }
 </script>
 

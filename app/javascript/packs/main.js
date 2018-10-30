@@ -11,30 +11,41 @@ import Vue from 'vue'
 import Router from './router/index'
 import App from '../app.vue'
 
-// apollo
-import { ApolloClient } from 'apollo-client'
-import { HttpLink } from 'apollo-link-http'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import VueApollo from 'vue-apollo'
+// 10/29コメントアウト
+// // apollo
+// import { ApolloClient } from 'apollo-client'
+// import { HttpLink } from 'apollo-link-http'
+// import { InMemoryCache } from 'apollo-cache-inmemory'
+// import VueApollo from 'vue-apollo'
+// import gql from 'graphql-tag'
+//
+// const httpLink = new HttpLink({
+//   // You should use an absolute URL here
+//   uri: 'http://localhost:3000/graphql',
+// })
+//
+// // Create the apollo client
+// const apolloClient = new ApolloClient({
+//   link: httpLink,
+//   cache: new InMemoryCache(),
+//   connectToDevTools: true,
+// })
+//
+// const apolloProvider = new VueApollo({
+//   defaultClient: apolloClient,
+// })
+//
+// // Install the vue plugin
+// Vue.use(VueApollo)
 
-// bootstrap
+
+// // bootstrap
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
-// apolloで追加した部分
-Vue.config.productionTip = false
-// install the vue-momnet plugin
-Vue.use(require('vue-moment'))
-Vue.use(VueApollo)
 
-const apolloProvider = new VueApollo({
-  defaultClient: new ApolloClient({
-    link: new HttpLink({ uri: 'http://＜GraphQLサーバ＞' }),
-    cache: new InMemoryCache()
-  })
-})
 
 
 // これよくわかんない
@@ -44,7 +55,8 @@ var app = new Vue({
   el: '#app',
   router: Router,
   // apolloで追加分
-  provide: apolloProvider.provide(),
+  // 10/29コメントアウト
+  // provide: apolloProvider.provide(),
   components: {
     'navbar': App,
    }
@@ -52,7 +64,10 @@ var app = new Vue({
 })
 
 
+
+
 // 最初からいたけど、不要なのでコメントアウト
+// 消すとエラーになるの謎
 // document.addEventListener('DOMContentLoaded', () => {
 //   const el = document.body.appendChild(document.createElement('hello'))
 //   const app = new Vue({

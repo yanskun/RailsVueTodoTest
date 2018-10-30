@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 
 // 原因はルーターっぽい？
 const router = new VueRouter({
-  mode: 'hash',
+  // mode: 'hash',
   routes: [
     { path: '/', component: Task, headerTitle: 'tasks' },
     { path: '/about', component: About, headerTitle: 'about' },
