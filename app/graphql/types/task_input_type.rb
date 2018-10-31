@@ -7,4 +7,5 @@ class Types::TaskInputType < GraphQL::Schema::InputObject
 
   argument :id, ID, required: false
   argument :name, String, required: true
+  argument :state, Integer, required: true
 end
