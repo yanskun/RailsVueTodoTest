@@ -4,11 +4,9 @@
     <p>{{ testGoodbey }}</p>
     <p>{{ taskAll }}</p>
     <ul>
-      <!-- <input type="text" v-model="Task">
-      <button @click="createTask">add</button> -->
       <h3>aaaa</h3>
       <li v-for="item in taskAll">
-        <a>{{item.name}}</a>
+        <a>{{item.state}}</a>
       </li>
     </ul>
   </div>
@@ -50,12 +48,7 @@ export default {
   apollo: {
     testHello: gql`query { testHello }`,
     testGoodbey: gql`query { testGoodbey }`,
-    taskAll: gql`query { taskAll{ id name }}`,
-    // createTask: gql`{
-    //   mutation createTask($task:TaskInputType!){
-    //     createTask(task:$task){
-    //       name
-    //     }}`
+    taskAll: gql`query { taskAll{ id name state }}`,
   },
 }
 
