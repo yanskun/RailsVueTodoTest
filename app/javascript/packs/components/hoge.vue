@@ -4,9 +4,9 @@
     <p>{{ testGoodbey }}</p>
     <p>{{ taskAll }}</p>
     <ul>
-      <h3>aaaa</h3>
-      <li v-for="item in taskAll">
-        <a>{{item.state}}</a>
+      <h3>A</h3>
+      <li v-for="AAA in taskAll" v-if="AAA.state === 1">
+        <a>{{AAA.name}}</a>
       </li>
     </ul>
   </div>
@@ -49,7 +49,7 @@ export default {
     testHello: gql`query { testHello }`,
     testGoodbey: gql`query { testGoodbey }`,
     taskAll: gql`query { taskAll{ id name state }}`,
-  },
+  }
 }
 
 </script>
