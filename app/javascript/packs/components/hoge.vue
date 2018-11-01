@@ -7,7 +7,7 @@
         <button @click="add">Add</button>
       </form>
       <li v-for="A in tasks" v-if="A.state === 1">
-        <a @click="del">[{{ A.id }}]</a>
+        <a @click="del(A.id)">[{{ A.id }}]</a>
         <a>{{ A.name }}</a>
       </li>
     </ul>
@@ -36,27 +36,42 @@ export default {
   },
   methods: {
     add :function() {
+      // ちゃんとsubmitから名前を受け取れてるかの確認
       console.log(this.newTask);
       this.$apollo.mutate({
         mutation: CREATE_TASK,
         variables: {
           task:{
             name: this.newTask,
+            // stateを指定しているので、複製が必要
             state: 1
           }
         }
       }),
       this.newTask = "";
     },
-    del : function() {
-      console.log(this.tasks.id);
+
+    del : function(id) {
+      console.log(id);
       this.$apollo.mutate({
         mutation: DELETE_TASK,
         variables: {
-          id: this.A.id
+          id: parseInt(id)
         }
       })
     }
+
+    // クリエイトと同じ理屈でデリートもできる説
+    // del : function() {
+    //   console.log(this.delTask);
+    //   this.$apollo.mutate({
+    //     mutation: DELETE_TASK,
+    //     variavles: {
+    //       id: this.delTask.id
+    //     }
+    //   })
+    // }
+    // 実証ならず
   }
 }
 
@@ -66,8 +81,14 @@ export default {
 
 ul {
   margin: 50px;
-  width: 200px;
+  width: 250px;
   border: solid 1px;
+  float: left;
+}
+
+li {
+  list-style: none;
+  margin: 10px auto;
 }
 
 </style>
