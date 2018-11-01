@@ -6,5 +6,5 @@ class Types::QueryType < Types::BaseObject
   def tasks
     Task.all
   end
-  
+
 end
