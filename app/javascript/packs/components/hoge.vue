@@ -7,7 +7,8 @@
         <button @click="add">Add</button>
       </form>
       <li v-for="A in tasks" v-if="A.state === 1">
-        <a @click="del(A.id)">[{{ A.id }}]</a>
+        <!-- メソッドに、何のデータを取得するのかを明示する -->
+        <a @click="del(A.id)">[ｘ]</a>
         <a>{{ A.name }}</a>
       </li>
     </ul>
@@ -53,25 +54,15 @@ export default {
 
     del : function(id) {
       console.log(id);
-      this.$apollo.mutate({
-        mutation: DELETE_TASK,
-        variables: {
-          id: parseInt(id)
-        }
-      })
+      if (confirm('Are you sure???')){
+        this.$apollo.mutate({
+          mutation: DELETE_TASK,
+          variables: {
+            id: parseInt(id)
+          }
+        })
+      }
     }
-
-    // クリエイトと同じ理屈でデリートもできる説
-    // del : function() {
-    //   console.log(this.delTask);
-    //   this.$apollo.mutate({
-    //     mutation: DELETE_TASK,
-    //     variavles: {
-    //       id: this.delTask.id
-    //     }
-    //   })
-    // }
-    // 実証ならず
   }
 }
 
