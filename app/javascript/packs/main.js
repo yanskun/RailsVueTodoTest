@@ -9,6 +9,11 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import VueApollo from 'vue-apollo'
 
+// // bootstrap
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import BootstrapVue from 'bootstrap-vue'
+
 const httpLink = new HttpLink({
   // You should use an absolute URL here
   uri: 'http://localhost:3000/graphql',
@@ -27,11 +32,6 @@ const apolloProvider = new VueApollo({
 
 // vue pluginのインストール
 Vue.use(VueApollo)
-
-// // bootstrap
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
 var app = new Vue({
