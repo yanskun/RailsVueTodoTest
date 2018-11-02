@@ -1,16 +1,38 @@
 <template>
   <div>
+    <form @submit.prevent>
+      <input type="text" v-model="newTask">
+      <button @click="add">AddTask</button>
+    </form>
     <ul>
       <h3>A</h3>
-      <form @submit.prevent>
-        <input type="text" v-model="newTask">
-        <button @click="add">Add</button>
-      </form>
-      <li v-for="A in tasks" v-if="A.state === 1">
-        <!-- メソッドに、何のデータを取得するのかを明示する -->
-        <a @click="del(A.id)">[ｘ]</a>
-        <a>{{ A.name }}</a>
-      </li>
+      <draggable :options="{group:'ITEMS'}">
+        <li v-for="A in tasks" v-if="A.state === 1">
+          <!-- メソッドに、何のデータを取得するのかを明示する -->
+          <a @click="del(A.id)">[ｘ]</a>
+          <a>{{ A.name }}</a>
+        </li>
+      </draggable>
+    </ul>
+    <ul>
+      <h3>A</h3>
+      <draggable :options="{group:'ITEMS'}">
+        <li v-for="A in tasks" v-if="A.state === 2">
+          <!-- メソッドに、何のデータを取得するのかを明示する -->
+          <a @click="del(A.id)">[ｘ]</a>
+          <a>{{ A.name }}</a>
+        </li>
+      </draggable>
+    </ul>
+    <ul>
+      <h3>A</h3>
+      <draggable :options="{group:'ITEMS'}">
+        <li v-for="A in tasks" v-if="A.state === 3">
+          <!-- メソッドに、何のデータを取得するのかを明示する -->
+          <a @click="del(A.id)">[ｘ]</a>
+          <a>{{ A.name }}</a>
+        </li>
+      </draggable>
     </ul>
   </div>
 </template>
@@ -80,6 +102,13 @@ ul {
 li {
   list-style: none;
   margin: 10px auto;
+}
+
+form {
+  margin: 50px 0 0 50px;
+  border-bottom: solid 1px;
+  width: 300px;
+  padding: 10px;
 }
 
 </style>
