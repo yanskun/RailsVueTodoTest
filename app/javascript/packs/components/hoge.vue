@@ -15,7 +15,7 @@
       </draggable>
     </ul>
     <ul>
-      <h3>A</h3>
+      <h3>B</h3>
       <draggable :options="{group:'ITEMS'}">
         <li v-for="A in tasks" v-if="A.state === 2">
           <!-- メソッドに、何のデータを取得するのかを明示する -->
@@ -25,7 +25,7 @@
       </draggable>
     </ul>
     <ul>
-      <h3>A</h3>
+      <h3>C</h3>
       <draggable :options="{group:'ITEMS'}">
         <li v-for="A in tasks" v-if="A.state === 3">
           <!-- メソッドに、何のデータを取得するのかを明示する -->
@@ -94,7 +94,7 @@ export default {
 
 ul {
   margin: 50px;
-  width: 250px;
+  width: 150px;
   border: solid 1px;
   float: left;
 }
