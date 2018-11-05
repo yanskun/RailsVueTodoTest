@@ -94,7 +94,7 @@ export default {
 
 ul {
   margin: 50px;
-  width: 150px;
+  width: 250px;
   border: solid 1px;
   float: left;
 }
