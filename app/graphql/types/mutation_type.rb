@@ -42,14 +42,4 @@ class Types::MutationType < Types::BaseObject
     Task.where(id: id).destroy_all
     true
   end
-
-  # field :delete_task, Boolean, null: false do
-  #   argument :task, Types::TaskInputType, required: true
-  # end
-  #
-  # def delete_task(task:)
-  #   Task.where(id: task[:id]).destroy_all
-  #   true
-  # end
-
 end
