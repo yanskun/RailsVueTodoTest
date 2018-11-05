@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class GraphqlController < ApplicationController
-# トークンエラーが起こるみたい、それを回避するための一文。
+  # トークンエラーが起こるみたい、それを回避するための一文。
   skip_before_action :verify_authenticity_token
   def execute
     variables = ensure_hash(params[:variables])
@@ -12,8 +14,9 @@ class GraphqlController < ApplicationController
     }
     result = MyappSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
-  rescue => e
+  rescue StandardError => e
     raise e unless Rails.env.development?
+
     handle_error_in_development e
   end
 
