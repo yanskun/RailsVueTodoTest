@@ -1,5 +1,6 @@
-class Types::MutationType < Types::BaseObject
+# frozen_string_literal: true
 
+class Types::MutationType < Types::BaseObject
   # create
   # インプットタイプ仕様に変更
   # 「データ型：String」をTypes::〜〜に修正
