@@ -31,4 +31,7 @@
 yarn-debug.log*
 .yarn-integrity
 
+# Git管理しないファイルの為
 /docker/mysql/volumes/
+# あっても消すファイルなので
+/tmp/pids/server.pid
