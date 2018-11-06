@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 class Types::MutationType < Types::BaseObject
+  # field :createTaskMutation, mutation: Mutations::CreateTaskMutation
   # create
   # インプットタイプ仕様に変更
   # 「データ型：String」をTypes::〜〜に修正
   # 入力方式？を変更してるのか？
+
+  # point
   field :create_task, TaskType, null: true do
     argument :task, Types::TaskInputType, required: true
   end
@@ -14,6 +17,7 @@ class Types::MutationType < Types::BaseObject
   #   Task.create name: name
   # end
 
+  # point
   # 実装後
   def create_task(task:)
     # IDがキー、nameをバリューでのhashに変換するための「to_h」？
@@ -24,7 +28,7 @@ class Types::MutationType < Types::BaseObject
   # 「Boolean」は戻り値がない、
   # アップデートはフロントからdbに参照して終わりで良いので
   # 成功したのかしてないのかわかればそれでよし
-  field :update_task, Boolean, null: false do
+  field :update_task, Boolean, null: true do
     argument :task, Types::TaskInputType, required: true
   end
 
